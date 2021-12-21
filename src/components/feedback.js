@@ -5,12 +5,15 @@ import FeedbackOptions from "./FeedbackOptions";
 import Statistics from "./Statistics";
 import Section from "./Section";
 
+
+const initialState = {
+  good: 0,
+  neutral: 0,
+  bad: 0,
+};
+
 const Feedback = () => {
-  const initialState = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  };
+
 
   const [state, setState] = useState(initialState);
 
@@ -22,18 +25,6 @@ const Feedback = () => {
       [name]: prevState[name] + 1,
     }));
   };
-
-  //   const handleOnClick = (name) => {
-  //     if (name === "good") {
-  //       setGood((prevGood) => prevGood + 1);
-  //     }
-  //     if (name === "neutral") {
-  //       setNeutral((prevNeutral) => prevNeutral + 1);
-  //     }
-  //     if (name === "bad") {
-  //       setBad((prevBad) => prevBad + 1);
-  //     }
-  //   };
 
   const positivePercentage = Math.round((state.good / countTotal) * 100);
 
